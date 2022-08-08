@@ -35,9 +35,22 @@
 # 1 <= m, n <= 50
 # 1 <= accounts[i][j] <= 100
 
-class Solution(object):
-    def maximumWealth(self, accounts):
-        """
-        :type accounts: List[List[int]]
-        :rtype: int
-        """
+
+def maximumWealth(accounts):
+    """
+    :type accounts: List[List[int]]
+    :rtype: int
+    """
+    max_wealth = 0
+    for customer in accounts:
+        current_customer_wealth = 0
+        for wealth in customer:
+            current_customer_wealth += wealth
+            max_wealth = max(max_wealth, current_customer_wealth)
+    return max_wealth
+            
+
+
+accounts1 = [[1,5],[7,3],[3,5]]
+print(maximumWealth(accounts1))
+
