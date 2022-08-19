@@ -20,3 +20,18 @@
 # Explanation: There is no way to replace a single character to make "a" not a palindrome, so return an empty string.
 
 
+def palindromeBreak(astring):
+    string_list = []
+    first_letter = astring(0)
+    letter_change_pos = 0
+    if len(astring) == 1:
+        return ""
+    for i in range(1,len(astring)):
+        if ord(astring[i]) > ord(astring[i-1]) and i != (len(astring)-1)/2:
+            letter_change_pos += 1
+            # split string into list, change letter, combine
+        else:
+            letter_change_pos += 1
+
+
+    return
