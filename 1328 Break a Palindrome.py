@@ -21,17 +21,16 @@
 
 
 def palindromeBreak(astring):
-    string_list = []
-    first_letter = astring(0)
-    letter_change_pos = 0
     if len(astring) == 1:
         return ""
+    pos_of_letter_to_change = 0
     for i in range(1,len(astring)):
         if ord(astring[i]) > ord(astring[i-1]) and i != (len(astring)-1)/2:
-            letter_change_pos += 1
-            # split string into list, change letter, combine
-        else:
-            letter_change_pos += 1
+            pos_of_letter_to_change = i
+    if astring[pos_of_letter_to_change] == "a":
+        return ""
+    else:
+        string_list = list(astring)
+        string_list[pos_of_letter_to_change] = 'a'
+        return ''.join(string_list)
 
-
-    return
