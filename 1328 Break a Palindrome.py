@@ -20,17 +20,17 @@
 # Explanation: There is no way to replace a single character to make "a" not a palindrome, so return an empty string.
 
 
-def palindromeBreak(astring):
-    if len(astring) == 1:
-        return ""
-    pos_of_letter_to_change = 0
-    for i in range(1,len(astring)):
-        if ord(astring[i]) > ord(astring[i-1]) and i != (len(astring)-1)/2:
-            pos_of_letter_to_change = i
-    if astring[pos_of_letter_to_change] == "a":
-        return ""
-    else:
-        string_list = list(astring)
-        string_list[pos_of_letter_to_change] = 'a'
-        return ''.join(string_list)
-
+def breakPalindrome(astring):
+        """
+        :type palindrome: str
+        :rtype: str
+        """
+        
+        if len(astring) == 1:
+            return ""
+        for i in range(0,len(astring)//2):
+            if ord(astring[i]) > ord('a'):
+                return astring[:i] + 'a' + astring[i+1:]
+        return astring[:-1] + 'b'
+        
+print(breakPalindrome("abba"))
