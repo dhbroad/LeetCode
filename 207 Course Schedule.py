@@ -72,7 +72,7 @@ def canFinishBFS(numCourses,prerequisites):
     def topologicalSort(course, stack):
         if course not in complete:
             for nextCourse in graph.get(course):
-                if nextCourse in Stack:
+                if nextCourse in stack:
                     continue
                 stack.add(course)
                 topologicalSort(nextCourse, stack)
