@@ -1,3 +1,8 @@
+# Ransom Note 
+
+# https://leetcode.com/problems/ransom-note/
+
+
 def canConstruct(ransomNote, magazine):
     magDict = {}
     for letter in magazine:

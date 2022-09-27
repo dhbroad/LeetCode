@@ -1,4 +1,8 @@
-# iven an integer n, return a string array answer (1-indexed) where:
+# Fizz Buzz
+
+# https://leetcode.com/problems/fizz-buzz/
+
+# Given an integer n, return a string array answer (1-indexed) where:
 
 # answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
 # answer[i] == "Fizz" if i is divisible by 3.
@@ -30,15 +34,27 @@ def fizzBuzz(n):
     :type n: int
     :rtype: List[str]
     """
-    fizz_buzz_output = ""
+    # fizz_buzz_output = ""
 
-    if n % 3 == 0:
-        fizz_buzz_output += "Fizz"
-    if n % 5 == 0:
-        fizz_buzz_output += "Buzz"
-    if fizz_buzz_output == "":
-        fizz_buzz_output = "i"
-    return fizz_buzz_output
+    # if n % 3 == 0:
+    #     fizz_buzz_output += "Fizz"
+    # if n % 5 == 0:
+    #     fizz_buzz_output += "Buzz"
+    # if fizz_buzz_output == "":
+    #     fizz_buzz_output = "i"
+    # return fizz_buzz_output
+
+    fizz_buzz_array = []
+    for num in range(1,n+1):
+        fizz_buzz_output = ""
+        if num % 3 == 0:
+            fizz_buzz_output += "Fizz"
+        if num % 5 == 0:
+            fizz_buzz_output += "Buzz"
+        if fizz_buzz_output == "":
+            fizz_buzz_output = str(num)
+        fizz_buzz_array.append(fizz_buzz_output)
+    return fizz_buzz_array
 
 print(fizzBuzz(15))
 
