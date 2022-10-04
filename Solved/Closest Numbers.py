@@ -1,3 +1,5 @@
+# https://www.hackerrank.com/challenges/closest-numbers/problem# 
+# 
 # closest numbers
 # for a list of numbers, return all of the pairs of numbers that have the lowest difference between them.
 
@@ -11,14 +13,17 @@
 # 4 6
 
 
-def closestNumber(nums):
-    nums.sort()
+def closestNumber(arr):
+    arr.sort()
     nums_dif_dict = {}
-    for i in range(1,len(nums)):
-        nums_dif = nums(i)-nums(i-1)
+    min_value = arr[1]-arr[0]
+    for i in range(1,len(arr)):
+        nums_dif = arr[i]-arr[i-1]
+        if nums_dif < min_value:
+            min_value = nums_dif
         if nums_dif in nums_dif_dict:
-            nums_dif_dict[nums_dif] += [nums(i), nums(i-1)]
+            nums_dif_dict[nums_dif] += [arr[i-1], arr[i]]
         else:
-            nums_dif_dict[nums_dif] = [nums(i), nums(i-1)]
-        
-    return
+            nums_dif_dict[nums_dif] = [arr[i-1], arr[i]]
+
+    return nums_dif_dict[min_value]
