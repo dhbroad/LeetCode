@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/move-zeroes/submissions/ 
+# 
 # Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
 # Note that you must do this in-place without making a copy of the array.
@@ -23,9 +25,10 @@
 # Follow up: Could you minimize the total number of operations done?
 
 
-class Solution(object):
-    def moveZeroes(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: None Do not return anything, modify nums in-place instead.
-        """
+def moveZeroes(self, nums):
+    zero_counter = 0
+    for i in range(len(nums)):
+        if nums[i-zero_counter] == 0:
+            nums.pop(i-zero_counter)
+            nums.append(0)
+            zero_counter += 1
