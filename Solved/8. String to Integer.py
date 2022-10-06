@@ -64,3 +64,43 @@
 
 # 0 <= s.length <= 200
 # s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
+
+
+def myAtoi(s):
+    """
+    :type s: str
+    :rtype: int
+    """
+    sign = ""
+    num = ""
+    if s == "":
+        return 0
+    for char in s:
+        if num != "" and (ord(char) < 47 or ord(char) > 58):
+            break
+        if sign != "" and (ord(char) < 47 or ord(char) > 58):
+            return 0
+        if char == " ":
+            continue
+        if char == "+" or char == "-":
+            sign = char
+            continue
+        if ord(char) > 47 and ord(char) < 58:
+            num += char
+        else:
+            return 0
+    if sign == "-":
+        try:
+            if 0-int(num) < -2**31:
+                return -2**31
+            else:
+                return 0-int(num)
+        except:
+            return 0
+    else:
+        try:
+            if int(num) > 2**31-1:
+                return 2**31-1
+            else:
+                return int(num)
+        except: return 0
