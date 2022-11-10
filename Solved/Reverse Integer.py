@@ -21,3 +21,15 @@
 # Constraints:
 
 # -231 <= x <= 231 - 1
+
+def reverse(x):
+    """
+    :type x: int
+    :rtype: int
+    """
+    xrev = int(str(abs(x))[::-1])
+    if xrev > 2**31:
+        return 0
+    elif x > 0:
+        return xrev
+    else: return 0-xrev
